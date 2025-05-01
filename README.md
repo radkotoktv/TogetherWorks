@@ -29,6 +29,7 @@ drawing a map that highlights the journey of transformation across
 communities.
 <br> <br>
 ● Dynamic Scheduling and Notification System:
+<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;● Implement a dynamic scheduling system for volunteers, accommodating
 their availability and preferences, like a conductor ensuring every musician
 plays at the right time for a harmonious performance.
