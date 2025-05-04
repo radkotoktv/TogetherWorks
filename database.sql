@@ -49,7 +49,7 @@ CREATE TABLE posts (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255),
     author VARCHAR(255),
-    date CHAR(10),
+    date DATE,
     description CHAR(255)
 );
 
