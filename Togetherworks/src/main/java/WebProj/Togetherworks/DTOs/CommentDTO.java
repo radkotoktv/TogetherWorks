@@ -11,6 +11,8 @@ import java.sql.Date;
 
 @Data
 public class CommentDTO {
+    private int idcomment;
+
     private String post_name;
 
     private String text;

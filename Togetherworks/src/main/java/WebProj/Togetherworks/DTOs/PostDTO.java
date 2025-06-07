@@ -7,6 +7,8 @@ import java.sql.Date;
 
 @Data
 public class PostDTO {
+    private int idpost;
+
     private String title;
 
     private String author;
