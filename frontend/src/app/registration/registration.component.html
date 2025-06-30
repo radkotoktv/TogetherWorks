@@ -1,0 +1,22 @@
+<main class="main">
+ <div class="form">
+  <p class="formtitle">Registration form</p>
+  <form [formGroup]="regformgroup" (ngSubmit)="onSubmit()">
+   <label for="fname">First Name </label>
+   <input type="text" formControlName="fname" id="fname"  class="inputfield"/>
+   <label for="lname">Last Name </label>
+   <input type ="text" formControlName="lname" id="lname" class="inputfield"/>
+   <label for="username">Username </label>
+   <input type="text" formControlName="username" id="username"  class="inputfield"/>
+   <label for="pass">Password </label>
+   <input type="password" formControlName="password" id="pass"  class="inputfield"/>
+   <label for="age">Age </label>
+   <input type="number" formControlName="age" id="age"  class="inputfield"/>
+   <label for="salary">Salary </label>
+   <input type="number" formControlName="salary" id="salary"  class="inputfield"/>
+   <button type="submit" class="registerbtn" [disabled]="!regformgroup.valid">Register</button>
+  </form>
+  <a routerLink="../login" routerLinkActive="active" ariaCurrentWhenActive="page" class="bypass">Already have an account?</a>
+  
+ </div>
+</main>

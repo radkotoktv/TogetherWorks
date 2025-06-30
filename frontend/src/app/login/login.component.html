@@ -1,0 +1,14 @@
+<main class="main">
+ <div class="form">
+  <p class="formtitle">Login form</p>
+  <form [formGroup]="logformgroup" (ngSubmit)="onLogin()">   
+   <label for="user">Username </label>
+   <input type="text" formControlName="username" id="user" class="inputfield"/>
+   <label for="pass">Password </label>
+   <input type="password" formControlName="password" id="pass" class="inputfield"/>   
+   <button type="submit" class="registerbtn" [disabled]="!logformgroup.valid">Login</button>
+  </form>
+  <a routerLink="../registration" class="bypass">Don't have an account?</a>
+  
+ </div>
+</main>
