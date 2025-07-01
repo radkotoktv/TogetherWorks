@@ -6,16 +6,17 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
-@Table(name = "Volunteers")
+@Table(name = "volunteers")
 @Data
 public class Volunteer {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int idvolunteer;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     @Column
     private String first_name;
     @Column
     private String last_name;
+    @Enumerated(EnumType.STRING)
     @Column
     private Gender gender;
     @Column
@@ -24,8 +25,8 @@ public class Volunteer {
     private String username;
     @Column
     private String password;
-    @Column
-    private String preference;
+//    @Column
+//    private String preference;
     @JoinColumn(name = "project_id")
     @ManyToOne
     private Project project;
@@ -89,11 +90,4 @@ public class Volunteer {
         this.password = password;
     }
 
-    public Preference getPreference() {
-        return preference;
-    }
-
-    public void setPreference(Preference preference) {
-        this.preference = preference;
-    }
 }

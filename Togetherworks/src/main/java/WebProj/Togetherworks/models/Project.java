@@ -11,7 +11,7 @@ import java.sql.Date;
 public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int idproject;
+    private int id;
     @Column
     private String name;
     @Column

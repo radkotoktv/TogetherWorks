@@ -22,6 +22,8 @@ public class VolunteerDTO {
 
     private String project_name;
 
+    private String password;
+
     public String getFirst_name() {
         return first_name;
     }
@@ -60,14 +62,6 @@ public class VolunteerDTO {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public Preference getPreference() {
-        return preference;
-    }
-
-    public void setPreference(Preference preference) {
-        this.preference = preference;
     }
 
     public String getProject_name() {

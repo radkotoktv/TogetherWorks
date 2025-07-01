@@ -58,7 +58,7 @@ public class VolunteerService {
                     existing.setEmail(dto.getEmail());
                     existing.setUsername(dto.getUsername());
                     existing.setGender(dto.getGender());
-                    existing.setPreference(dto.getPreference());
+//                    existing.setPreference(dto.getPreference());
                     existing.setProject(project);
                     return volunteerMapper.map2DTO(volunteerRepository.save(existing));
                 });

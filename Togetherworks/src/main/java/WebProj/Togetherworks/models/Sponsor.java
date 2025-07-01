@@ -17,10 +17,6 @@ public class Sponsor {
     @Column
     private Double amount;
 
-    public String getName() {
-        return name;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
