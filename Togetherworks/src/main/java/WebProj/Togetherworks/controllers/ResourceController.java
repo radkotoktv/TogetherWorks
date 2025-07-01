@@ -15,7 +15,7 @@ import java.util.List;
 
 @RequestMapping("/resources")
 public class ResourceController {
-    private final ResourceService resourceService;
+    private ResourceService resourceService;
 
     @Autowired
     public ResourceController(ResourceService rs){

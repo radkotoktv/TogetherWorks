@@ -24,7 +24,7 @@ import java.util.List;
 
 @RequestMapping("/volunteers")
 public class VolunteerController {
-    private final VolunteerService volunteerService;
+    private VolunteerService volunteerService;
 
     @Autowired
     public VolunteerController(VolunteerService vs){

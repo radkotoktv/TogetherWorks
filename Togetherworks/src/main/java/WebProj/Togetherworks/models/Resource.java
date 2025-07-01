@@ -26,4 +26,16 @@ public class Resource {
 
         return project.getName();
     }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
+    }
 }

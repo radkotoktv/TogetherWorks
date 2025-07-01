@@ -24,7 +24,7 @@ import java.util.List;
 
 @RequestMapping("/projects")
 public class ProjectController {
-    private final ProjectService projectService;
+    private ProjectService projectService;
 
     @Autowired
     public ProjectController(ProjectService ps){

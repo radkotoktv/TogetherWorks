@@ -22,7 +22,7 @@ import java.util.List;
 
 @RequestMapping("/sponsors")
 public class SponsorController {
-    private final SponsorService sponsorService;
+    private SponsorService sponsorService;
 
     @Autowired
     public SponsorController(SponsorService ss){

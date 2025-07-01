@@ -14,8 +14,8 @@ import java.util.Optional;
 @Service
 
 public class SponsorService {
-    private final SponsorRepository sponsorRepository;
-    private final SponsorMapper sponsorMapper;
+    private SponsorRepository sponsorRepository;
+    private SponsorMapper sponsorMapper;
 
     @Autowired
     public SponsorService(SponsorRepository sr, SponsorMapper sm){

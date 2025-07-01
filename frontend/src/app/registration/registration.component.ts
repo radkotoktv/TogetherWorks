@@ -19,9 +19,11 @@ export class RegistrationComponent {
 		first_name: new FormControl<string|null>('',[Validators.required,Validators.maxLength(40)]),
 		last_name: new FormControl<string|null>('',[Validators.required,Validators.maxLength(40)]),
 		gender: new FormControl<string|null>('',[Validators.required,Validators.maxLength(25),Validators.minLength(3)]),
-		email: new FormControl<string|null>('',[Validators.required]),
 		username: new FormControl<string|null>('',[Validators.required,Validators.min(14)]),
-		preference: new FormControl<string|null>('',[Validators.required,Validators.min(2000),Validators.max(10000)]),
+		password: new FormControl<string|null>('', [Validators.required, Validators.minLength(8)]),
+		age: new FormControl<string|null>(null, [Validators.required, Validators.min(18)]),
+		salary: new FormControl<number|null>(null, [Validators.required, Validators.min(0)]),
+		email: new FormControl<string|null>('',[Validators.required]),
 });
     onSubmit(): void {
 		
@@ -31,8 +33,9 @@ export class RegistrationComponent {
             gender: <string>this.regformgroup.value.gender,
             email: <string>this.regformgroup.value.email,
             username: <string>this.regformgroup.value.username,
-            preference: <string>this.regformgroup.value.preference,
+            preference: "none",
             project_name:"none",
+			password: "temp",
 		};
 		
 		this.registerService.register(Volunteer).subscribe(u => this.registerService.goToLogin());

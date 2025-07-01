@@ -17,9 +17,9 @@ import java.util.Optional;
 @Service
 
 public class ResourceService {
-    private final ResourceRepository resourceRepository;
-    private final ResourceMapper resourceMapper;
-    private final ProjectRepository projectRepository;
+    private ResourceRepository resourceRepository;
+    private ResourceMapper resourceMapper;
+    private ProjectRepository projectRepository;
 
     @Autowired
     public ResourceService(ResourceRepository rr, ResourceMapper rm, ProjectRepository pr){

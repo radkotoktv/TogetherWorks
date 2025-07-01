@@ -15,9 +15,9 @@ import java.util.Optional;
 @Service
 
 public class VolunteerService {
-    private final VolunteerRepository volunteerRepository;
-    private final VolunteerMapper volunteerMapper;
-    private final ProjectRepository projectRepository;
+    private VolunteerRepository volunteerRepository;
+    private VolunteerMapper volunteerMapper;
+    private ProjectRepository projectRepository;
 
     @Autowired
     public VolunteerService(VolunteerRepository vr, VolunteerMapper vm, ProjectRepository pr){

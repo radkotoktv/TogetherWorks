@@ -6,5 +6,5 @@ export interface Volunteer {
   username: string;
   preference: string;
   project_name: string;
-  
+  password: string;
 }

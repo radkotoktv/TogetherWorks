@@ -18,9 +18,9 @@ import java.util.Optional;
 @Service
 
 public class ProjectService {
-    private final ProjectRepository projectRepository;
-    private final ProjectMapper projectMapper;
-    private final SponsorRepository sponsorRepository;
+    private ProjectRepository projectRepository;
+    private ProjectMapper projectMapper;
+    private SponsorRepository sponsorRepository;
 
     @Autowired
     public ProjectService(ProjectRepository pr, ProjectMapper pm, SponsorRepository sr){
