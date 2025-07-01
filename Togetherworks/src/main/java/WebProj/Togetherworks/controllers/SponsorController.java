@@ -3,6 +3,7 @@ package WebProj.Togetherworks.controllers;
 import WebProj.Togetherworks.DTOs.SponsorDTO;
 import WebProj.Togetherworks.services.SponsorService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -18,10 +19,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import java.util.List;
 
 @RestController
-@RequiredArgsConstructor
+
 @RequestMapping("/sponsors")
 public class SponsorController {
     private final SponsorService sponsorService;
+
+    @Autowired
+    public SponsorController(SponsorService ss){
+        sponsorService =ss;
+    }
 
     @GetMapping("/all")
     public ResponseEntity<List<SponsorDTO>> getAllSponsors() {

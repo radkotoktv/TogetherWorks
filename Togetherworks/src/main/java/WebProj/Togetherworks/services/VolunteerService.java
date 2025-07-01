@@ -6,18 +6,25 @@ import WebProj.Togetherworks.models.Project;
 import WebProj.Togetherworks.models.Volunteer;
 import WebProj.Togetherworks.repositories.ProjectRepository;
 import WebProj.Togetherworks.repositories.VolunteerRepository;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
+
 public class VolunteerService {
     private final VolunteerRepository volunteerRepository;
     private final VolunteerMapper volunteerMapper;
     private final ProjectRepository projectRepository;
+
+    @Autowired
+    public VolunteerService(VolunteerRepository vr, VolunteerMapper vm, ProjectRepository pr){
+        volunteerMapper =vm;
+        volunteerRepository =vr;
+        projectRepository =pr;
+    }
 
     public List<VolunteerDTO> getAllVolunteers() {
         return volunteerRepository.findAll()
@@ -33,16 +40,17 @@ public class VolunteerService {
         return volunteerMapper.map2DTO(saved);
     }
 
-    public boolean deleteVolunteer(String name) {
-        if (volunteerRepository.existsByName(name)) {
-            volunteerRepository.deleteByName(name);
-            return true;
-        }
-        return false;
+    public void deleteVolunteer(String name) {
+        String a = name.split(" ")[0];
+        String b = name.split(" ")[1];
+
+            volunteerRepository.deleteByName(a,b);
+
+
     }
 
     public Optional<VolunteerDTO> updateVolunteer(String name, VolunteerDTO dto) {
-        return volunteerRepository.findByName(name)
+        return volunteerRepository.findByName(name.split(" ")[0],name.split(" ")[1])
                 .map(existing -> {
                     Project project = projectRepository.findByName(dto.getProject_name()).orElse(null);
                     existing.setFirst_name(dto.getFirst_name());

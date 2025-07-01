@@ -4,6 +4,7 @@ import WebProj.Togetherworks.DTOs.ResourceDTO;
 import WebProj.Togetherworks.enums.Type;
 import WebProj.Togetherworks.services.ResourceService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,10 +12,15 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequiredArgsConstructor
+
 @RequestMapping("/resources")
 public class ResourceController {
     private final ResourceService resourceService;
+
+    @Autowired
+    public ResourceController(ResourceService rs){
+        resourceService = rs;
+    }
 
     @GetMapping("/all")
     public ResponseEntity<List<ResourceDTO>> getAllResources() {

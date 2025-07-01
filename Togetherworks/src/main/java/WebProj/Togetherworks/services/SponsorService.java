@@ -5,16 +5,23 @@ import WebProj.Togetherworks.mappers.SponsorMapper;
 import WebProj.Togetherworks.models.Sponsor;
 import WebProj.Togetherworks.repositories.SponsorRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
+
 public class SponsorService {
     private final SponsorRepository sponsorRepository;
     private final SponsorMapper sponsorMapper;
+
+    @Autowired
+    public SponsorService(SponsorRepository sr, SponsorMapper sm){
+        sponsorMapper = sm;
+        sponsorRepository =sr;
+    }
 
     public List<SponsorDTO> getAllSponsors() {
         return sponsorRepository.findAll()

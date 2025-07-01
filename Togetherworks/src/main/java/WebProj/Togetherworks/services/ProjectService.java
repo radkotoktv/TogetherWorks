@@ -9,17 +9,25 @@ import WebProj.Togetherworks.repositories.ProjectRepository;
 import WebProj.Togetherworks.repositories.SponsorRepository;
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
+
 public class ProjectService {
     private final ProjectRepository projectRepository;
     private final ProjectMapper projectMapper;
     private final SponsorRepository sponsorRepository;
+
+    @Autowired
+    public ProjectService(ProjectRepository pr, ProjectMapper pm, SponsorRepository sr){
+        projectMapper =pm;
+        projectRepository =pr;
+        sponsorRepository =sr;
+    }
 
     public List<ProjectDTO> getAllProjects() {
         return projectRepository.findAll()

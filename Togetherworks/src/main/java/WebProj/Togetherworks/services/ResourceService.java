@@ -8,17 +8,25 @@ import WebProj.Togetherworks.models.Resource;
 import WebProj.Togetherworks.repositories.ProjectRepository;
 import WebProj.Togetherworks.repositories.ResourceRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
+
 public class ResourceService {
     private final ResourceRepository resourceRepository;
     private final ResourceMapper resourceMapper;
     private final ProjectRepository projectRepository;
+
+    @Autowired
+    public ResourceService(ResourceRepository rr, ResourceMapper rm, ProjectRepository pr){
+        resourceMapper =rm;
+        resourceRepository = rr;
+        projectRepository =pr;
+    }
 
     public List<ResourceDTO> getAllResources() {
         return resourceRepository.findAll()

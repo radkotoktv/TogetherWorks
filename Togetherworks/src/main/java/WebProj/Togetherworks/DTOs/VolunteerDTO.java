@@ -18,7 +18,7 @@ public class VolunteerDTO {
 
     private String username;
 
-    private Preference preference; //might just change this to string(only in the dto)
+    private String preference;
 
     private String project_name;
 }

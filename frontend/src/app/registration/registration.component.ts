@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {ReactiveFormsModule,Validators } from '@angular/forms';
 import {FormControl, FormGroup} from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import {User} from '../User';
+import {Volunteer} from '../Volunteer';
 import {RegisterService} from '../register.service';
 
 @Component({
@@ -16,27 +16,26 @@ export class RegistrationComponent {
 		
 	}
 	regformgroup = new FormGroup({
-		fname: new FormControl<string|null>('',[Validators.required,Validators.maxLength(40)]),
-		lname: new FormControl<string|null>('',[Validators.required,Validators.maxLength(40)]),
-		username: new FormControl<string|null>('',[Validators.required,Validators.maxLength(25),Validators.minLength(3)]),
-		password: new FormControl<string|null>('',[Validators.required]),
-		age: new FormControl<number|null>(14,[Validators.required,Validators.min(14)]),
-		salary: new FormControl<number|null>(2000,[Validators.required,Validators.min(2000),Validators.max(10000)]),
+		first_name: new FormControl<string|null>('',[Validators.required,Validators.maxLength(40)]),
+		last_name: new FormControl<string|null>('',[Validators.required,Validators.maxLength(40)]),
+		gender: new FormControl<string|null>('',[Validators.required,Validators.maxLength(25),Validators.minLength(3)]),
+		email: new FormControl<string|null>('',[Validators.required]),
+		username: new FormControl<string|null>('',[Validators.required,Validators.min(14)]),
+		preference: new FormControl<string|null>('',[Validators.required,Validators.min(2000),Validators.max(10000)]),
 });
     onSubmit(): void {
 		
-		let user: User = {
-			fname: <string>this.regformgroup.value.fname,
-            lname: <string>this.regformgroup.value.lname,
+		let Volunteer: Volunteer = {
+			first_name: <string>this.regformgroup.value.first_name,
+            last_name: <string>this.regformgroup.value.last_name,
+            gender: <string>this.regformgroup.value.gender,
+            email: <string>this.regformgroup.value.email,
             username: <string>this.regformgroup.value.username,
-            password: <string>this.regformgroup.value.password,
-            age: <number>this.regformgroup.value.age,
-            salary: <number>this.regformgroup.value.salary,
-            team: "none",
-			role: "player",
+            preference: <string>this.regformgroup.value.preference,
+            project_name:"none",
 		};
 		
-		this.registerService.register(user).subscribe(u => this.registerService.goToLogin());
+		this.registerService.register(Volunteer).subscribe(u => this.registerService.goToLogin());
 		
     }
 }

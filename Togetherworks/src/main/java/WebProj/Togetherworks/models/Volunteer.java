@@ -25,7 +25,7 @@ public class Volunteer {
     @Column
     private String password;
     @Column
-    private Preference preference;
+    private String preference;
     @JoinColumn(name = "project_id")
     @ManyToOne
     private Project project;

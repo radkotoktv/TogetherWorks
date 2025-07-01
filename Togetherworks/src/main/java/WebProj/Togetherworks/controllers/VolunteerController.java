@@ -5,6 +5,7 @@ import WebProj.Togetherworks.services.VolunteerService;
 
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -20,10 +21,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import java.util.List;
 
 @RestController
-@RequiredArgsConstructor
+
 @RequestMapping("/volunteers")
 public class VolunteerController {
     private final VolunteerService volunteerService;
+
+    @Autowired
+    public VolunteerController(VolunteerService vs){
+        volunteerService =vs;
+    }
 
     @GetMapping("/all")
     public ResponseEntity<List<VolunteerDTO>> getAllVolunteers() {
@@ -37,11 +43,10 @@ public class VolunteerController {
     }
 
     @DeleteMapping("/delete/{username}")
-    public ResponseEntity<String> deleteVolunteer(@PathVariable String username) {
-        boolean deleted = volunteerService.deleteVolunteer(username);
-        return deleted ?
-                ResponseEntity.ok("Deleted volunteer with username " + username) :
-                ResponseEntity.notFound().build();
+    public ResponseEntity<Void> deleteVolunteer(@PathVariable String username) {
+         volunteerService.deleteVolunteer(username);
+        return new     ResponseEntity<>(HttpStatus.OK);
+
     }
 
     @PutMapping("/update/{username}")

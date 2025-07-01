@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {ReactiveFormsModule,Validators } from '@angular/forms';
 import {FormControl, FormGroup} from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import {User} from '../User';
+import {Volunteer} from '../Volunteer';
 import {RegisterService} from '../register.service';
 
 @Component({
@@ -12,7 +12,7 @@ import {RegisterService} from '../register.service';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-	currUser : User | undefined;
+	currVolunteer : Volunteer | undefined;
 	constructor(private registerService: RegisterService) {
 		
 	}
@@ -21,10 +21,8 @@ export class LoginComponent {
 		password: new FormControl<string|null>('',[Validators.required]),		
     });
 	onLogin(): void {
-		/* let m= new Map<string,string>();
-		m.set("username",<string>this.logformgroup.value.username);
-		m.set("password",<string>this.logformgroup.value.password); */
-		var m = { "username": <string>this.logformgroup.value.username,"password":<string>this.logformgroup.value.password};
+		
+		var m = { "usernamename": <string>this.logformgroup.value.Volunteername,"password":<string>this.logformgroup.value.password};
 		
 		this.registerService.login(m).subscribe
 		(
@@ -32,29 +30,28 @@ export class LoginComponent {
 			{
 				if(!u)
 				{
-					this.currUser = undefined;
+					this.currVolunteer = undefined;
 				}
 				else
 				{
-					this.currUser =
+					this.currVolunteer =
 					{
-						fname:u.fname,
-						lname:u.lname,
+						first_name:u.first_name,
+						last_name:u.last_name,
+						gender:u.gender,
+						email:u.email,
 						username:u.username,
-						password:u.password,
-						age:u.age,
-						salary:u.salary,
-						team:u.team,
-						role:u.role
+						preference:u.preference,
+						project_name:u.project_name,
+						
 					}
-					sessionStorage.setItem('fname',this.currUser.fname);
-					sessionStorage.setItem('lname',this.currUser.lname);
-					sessionStorage.setItem('username',this.currUser.username);
-					sessionStorage.setItem('password',this.currUser.password);
-					sessionStorage.setItem('age',this.currUser.age.toString());
-					sessionStorage.setItem('salary',this.currUser.salary.toString());
-					sessionStorage.setItem('team',this.currUser.team);
-					sessionStorage.setItem('role',this.currUser.role);
+					sessionStorage.setItem('first_name',this.currVolunteer.first_name);
+					sessionStorage.setItem('last_name',this.currVolunteer.last_name);
+					sessionStorage.setItem('Volunteername',this.currVolunteer.Volunteername);
+					sessionStorage.setItem('password',this.currVolunteer.password);
+					sessionStorage.setItem('username',this.currVolunteer.username.toString());
+					sessionStorage.setItem('preference',this.currVolunteer.preference.toString());
+					sessionStorage.setItem('project_name',this.currVolunteer.project_name);					
 					sessionStorage.setItem('flag','set');
 					this.registerService.goToIndex();
 

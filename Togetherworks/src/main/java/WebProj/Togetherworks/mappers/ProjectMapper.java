@@ -11,5 +11,6 @@ public interface ProjectMapper {
     @Mapping(target="sponsor_name",expression = "java(p.getSponsorName())")
     public ProjectDTO map2DTO(Project p);
     @Mapping(target = "sponsor",source = "s")
+    @Mapping(target = "name",source = "pdto.name")
     public Project mapDTO(ProjectDTO pdto, Sponsor s);
 }
